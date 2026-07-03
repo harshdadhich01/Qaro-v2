@@ -75,8 +75,8 @@ export const services: Service[] = [
     short: "Build durable visibility for searches that create business.",
     eyebrow: "Compound organic demand",
     headline: "Rank on Google for the Searches That Matter.",
-    description: "Technical SEO, local SEO for Kota, content architecture and authority building - integrated into one measurable search programme.",
-    deliverables: ["Technical and content audit", "Local SEO and Google Maps", "Keyword-led content plan", "Reporting and iteration"],
+    description: "Technical SEO, keyword and content strategy, and authority building - integrated into one measurable search programme for national and international growth.",
+    deliverables: ["Technical and content audit", "National, international and local SEO", "Keyword-led content plan", "Reporting and iteration"],
     outcome: "More qualified discovery without paying for every click."
   },
   {
@@ -106,7 +106,7 @@ export const industries: Industry[] = [
     slug: "hotels",
     name: "Hotels & Hospitality",
     headline: "More Direct Bookings. Less OTA Commission.",
-    description: "QARO helps hotels and guesthouses in Kota increase direct bookings with stronger websites, local discovery, targeted campaigns and guest automation.",
+    description: "QARO helps hotels and guesthouses across India and worldwide increase direct bookings with stronger websites, search visibility, targeted campaigns and guest automation.",
     challenges: ["OTAs own the customer relationship", "The website looks dated or converts poorly", "Google Maps visibility is inconsistent"],
     system: ["Direct-booking website", "Local SEO and Maps", "Performance campaigns", "WhatsApp guest journeys"]
   },
@@ -114,7 +114,7 @@ export const industries: Industry[] = [
     slug: "healthcare",
     name: "Hospitals & Clinics",
     headline: "More Patients. More Trust. More Appointments.",
-    description: "We help healthcare teams in Kota build patient trust, rank for local intent and make appointments easier to discover and book.",
+    description: "We help healthcare teams across India and worldwide build patient trust, improve search visibility and make appointments easier to discover and book.",
     challenges: ["Patients cannot find the right service", "The digital presence does not communicate trust", "Front desks lose time to repetitive queries"],
     system: ["Trust-led website", "Local healthcare SEO", "Appointment funnels", "Patient communication automation"]
   },
@@ -130,7 +130,7 @@ export const industries: Industry[] = [
     slug: "restaurants",
     name: "Restaurants & F&B",
     headline: "More Tables Filled. More Customers Coming Back.",
-    description: "We help restaurants in Kota improve local discovery, turn attention into reservations and bring guests back through simple retention systems.",
+    description: "We help restaurants across India and worldwide improve discovery, turn attention into reservations and bring guests back through simple retention systems.",
     challenges: ["Discovery depends on aggregator apps", "Great content does not become bookings", "Repeat visits are not systematically encouraged"],
     system: ["Maps and local discovery", "Campaign-ready content", "Reservation automation", "Retention and loyalty flows"]
   },
@@ -145,14 +145,14 @@ export const industries: Industry[] = [
 ];
 
 export const caseStudies = [
-  { slug: "kota-guesthouse-direct-bookings", industry: "Hotels & Hospitality", metric: "+68%", period: "in 60 days", headline: "How a Kota Guesthouse Increased Direct Bookings by 68% in 60 Days", challenge: "High OTA dependency and a website that generated almost no direct demand.", work: "QARO rebuilt the booking journey, repaired local search visibility and launched intent-led campaigns.", result: "Direct bookings increased 68% while OTA dependency fell 30%." },
-  { slug: "kota-clinic-patient-inquiries", industry: "Healthcare", metric: "3.8x", period: "qualified enquiries", headline: "From 8 to 31 Monthly Patient Enquiries for a Kota Clinic", challenge: "Strong clinical reputation but limited discoverability outside referrals.", work: "We clarified service pages, improved Maps visibility and built an appointment-focused search campaign.", result: "Qualified monthly enquiries grew from 8 to 31 in one quarter." },
-  { slug: "kota-coaching-batches-filled-early", industry: "Education", metric: "3 weeks", period: "ahead of plan", headline: "How a Kota Coaching Institute Filled Batches Three Weeks Early", challenge: "Rising lead costs and inconsistent counsellor follow-up during admission season.", work: "QARO redesigned the enquiry funnel, campaign structure and automated lead routing.", result: "Target batches filled three weeks early with a 27% lower cost per qualified lead." }
+  { slug: "guesthouse-direct-bookings-68-percent", industry: "Hotels & Hospitality", metric: "+68%", period: "in 60 days", headline: "How a Guesthouse Increased Direct Bookings by 68% in 60 Days", challenge: "High OTA dependency and a website that generated almost no direct demand.", work: "QARO rebuilt the booking journey, repaired local search visibility and launched intent-led campaigns.", result: "Direct bookings increased 68% while OTA dependency fell 30%." },
+  { slug: "clinic-8-to-31-inquiries", industry: "Healthcare", metric: "3.8x", period: "qualified enquiries", headline: "From 8 to 31 Monthly Patient Enquiries for a Clinic", challenge: "Strong clinical reputation but limited discoverability outside referrals.", work: "We clarified service pages, improved Maps visibility and built an appointment-focused search campaign.", result: "Qualified monthly enquiries grew from 8 to 31 in one quarter." },
+  { slug: "coaching-batches-filled-early", industry: "Education", metric: "3 weeks", period: "ahead of plan", headline: "How a Coaching Institute Filled Batches Three Weeks Early", challenge: "Rising lead costs and inconsistent counsellor follow-up during admission season.", work: "QARO redesigned the enquiry funnel, campaign structure and automated lead routing.", result: "Target batches filled three weeks early with a 27% lower cost per qualified lead." }
 ];
 
 export const insights = [
-  { slug: "google-ads-vs-meta-ads-kota-business", category: "Performance", title: "Google Ads vs Meta Ads: Which One Should a Kota Business Run First?", summary: "Choose Google when demand already exists. Choose Meta when you need to create attention - then measure both against qualified revenue.", date: "2026-06-01" },
-  { slug: "local-seo-checklist-kota", category: "Search", title: "A Practical Local SEO Checklist for Kota Businesses", summary: "A focused system for improving Maps visibility, service relevance, reviews and local landing pages.", date: "2026-06-12" },
+  { slug: "google-ads-vs-meta-ads-which-first", category: "Performance", title: "Google Ads vs Meta Ads: Which One Should Your Business Run First?", summary: "Choose Google when demand already exists. Choose Meta when you need to create attention - then measure both against qualified revenue.", date: "2026-06-01" },
+  { slug: "local-seo-checklist-for-businesses", category: "Search", title: "A Practical Local SEO Checklist for Growing Businesses", summary: "A focused system for improving Maps visibility, service relevance, reviews and location landing pages.", date: "2026-06-12" },
   { slug: "what-to-automate-first", category: "Automation", title: "What Should a Growing Business Automate First?", summary: "Start where repetition, delay and lost context overlap: lead response, qualification and handoffs.", date: "2026-06-24" }
 ];
 

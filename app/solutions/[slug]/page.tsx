@@ -7,14 +7,15 @@ import { Reveal } from "@/components/reveal";
 import { JsonLd } from "@/components/seo/json-ld";
 import { ServiceVisual } from "@/components/service-visual";
 import { getService, industries, services } from "@/content/site";
+import { pageMetadata, siteUrl } from "@/lib/seo";
 
 const seoMetadata: Record<string, { title: string; description: string }> = {
-  "growth-strategy": { title: "Growth Strategy & Business Audit Services", description: "Get a prioritised growth roadmap built on a real audit of your traffic, conversions and competitors. Free growth audit from QARO, Kota." },
-  branding: { title: "Brand Identity & Design Services in Kota", description: "QARO builds brand identities that command attention and earn trust - logo, visual system, voice and messaging. See our brand work." },
-  website: { title: "Website Design & Development in Kota, Rajasthan", description: "Fast, mobile-first, conversion-optimised websites built to rank and convert. Website design and development by QARO in Kota and across India." },
+  "growth-strategy": { title: "Growth Strategy & Business Audit Services", description: "Get a prioritised growth roadmap built on a real audit of your traffic, conversions and competitors. Free growth audit from QARO." },
+  branding: { title: "Brand Identity & Design Services", description: "QARO builds brand identities that command attention and earn trust - logo, visual system, voice and messaging. See our brand work." },
+  website: { title: "Website Design & Development Company", description: "Fast, mobile-first, conversion-optimised websites built to rank and convert. Website design and development by QARO for businesses across India and worldwide." },
   "ui-ux": { title: "UI/UX Design Services for Apps & Products", description: "Research-backed UI/UX design for apps, products and dashboards that reduce drop-off and build loyalty. See QARO's UI/UX work." },
-  "performance-marketing": { title: "Google Ads & Meta Ads Agency in Kota", description: "Conversion-focused Google Ads and Meta Ads campaigns that deliver leads, not just clicks. Performance marketing by QARO in Kota." },
-  seo: { title: "SEO Services in Kota, Rajasthan & India", description: "Technical SEO, local SEO for Kota, keyword and content strategy that builds compounding organic rankings on Google. Free SEO audit from QARO." },
+  "performance-marketing": { title: "Google Ads & Meta Ads Agency", description: "Conversion-focused Google Ads and Meta Ads campaigns that deliver leads, not just clicks. Performance marketing by QARO." },
+  seo: { title: "SEO Services & SEO Agency", description: "Technical SEO, keyword and content strategy that builds compounding organic rankings on Google. Free SEO audit from QARO for businesses across India and worldwide." },
   "ai-automation": { title: "AI & WhatsApp Automation for Business", description: "AI chatbots, WhatsApp automation, CRM workflows and lead qualification that run your business on autopilot. AI automation by QARO." },
   analytics: { title: "Analytics, Tracking & Conversion Optimisation", description: "GA4 setup, custom dashboards, attribution and monthly growth reviews so you know exactly what's working. Analytics and optimisation by QARO." }
 };
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const service = getService(slug);
   if (!service) return {};
   const seo = seoMetadata[slug];
-  return { title: seo?.title ?? service.name, description: seo?.description ?? service.description, alternates: { canonical: `/solutions/${slug}` } };
+  return pageMetadata({ title: seo?.title ?? service.name, description: seo?.description ?? service.description, path: `/solutions/${slug}` });
 }
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -34,7 +35,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const service = getService(slug);
   if (!service) notFound();
   const related = services.filter((item) => item.slug !== slug).slice(0, 3);
-  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://qaro.in";
+  const base = siteUrl;
   return <>
     <PageHero eyebrow={service.eyebrow} title={service.headline} description={service.description} path={`/solutions/${slug}`} breadcrumbName={service.name} backHref="/solutions" backLabel="Solutions" />
     <ServiceVisual service={service} />
@@ -44,6 +45,6 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     </section>
     <section className="section related-section"><span className="eyebrow">Often connected with</span><div className="related-links">{related.map((item) => <Link key={item.slug} href={`/solutions/${item.slug}`}>{item.name}<ArrowRight size={18} /></Link>)}</div></section>
     <section className="section context-strip"><div><span className="eyebrow">Built for your context</span><h2>See how this capability works inside your industry.</h2></div><div>{industries.slice(0, 3).map((item) => <Link href={`/industries/${item.slug}`} key={item.slug}>{item.name}<ArrowRight size={17} /></Link>)}</div></section>
-    <JsonLd data={{ "@context": "https://schema.org", "@type": "Service", name: service.name, description: service.description, provider: { "@id": `${base}/#organization` }, areaServed: ["Kota", "Rajasthan", "India"], url: `${base}/solutions/${slug}` }} />
+    <JsonLd data={{ "@context": "https://schema.org", "@type": "Service", name: service.name, description: service.description, provider: { "@id": `${base}/#organization` }, areaServed: [{ "@type": "Country", name: "India" }, { "@type": "Place", name: "Worldwide" }], availableLanguage: "English", url: `${base}/solutions/${slug}` }} />
   </>;
 }

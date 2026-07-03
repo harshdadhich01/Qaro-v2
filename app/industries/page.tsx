@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { PageHero } from "@/components/page-hero";
 import { Reveal } from "@/components/reveal";
 import { industries } from "@/content/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = { title: "Industry-Specific Growth Solutions", description: "QARO builds growth systems tailored to hotels, healthcare, education, restaurants and startups in Kota and across India.", alternates: { canonical: "/industries" } };
+export const metadata = pageMetadata({ title: "Industry-Specific Growth Solutions", description: "QARO builds growth systems tailored to hotels, healthcare, education, restaurants and startups for businesses across India and worldwide.", path: "/industries" });
 
 export default function IndustriesPage() {
   return <>

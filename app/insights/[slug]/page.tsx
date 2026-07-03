@@ -5,11 +5,18 @@ import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/page-hero";
 import { JsonLd } from "@/components/seo/json-ld";
 import { insights } from "@/content/site";
+import { pageMetadata, siteUrl } from "@/lib/seo";
+
+const insightMetadata: Record<string, { title: string; description: string }> = {
+  "google-ads-vs-meta-ads-which-first": { title: "Google Ads vs Meta Ads: Which to Run First?", description: "A practical comparison of Google Ads vs Meta Ads for growing businesses - which to start with, budgets and what to expect. By QARO." },
+  "local-seo-checklist-for-businesses": { title: "Local SEO Checklist for Growing Businesses", description: "A practical local SEO checklist covering Google Maps visibility, service relevance, reviews and location pages for growing businesses." },
+  "what-to-automate-first": { title: "What Should a Growing Business Automate First?", description: "Learn which repetitive business processes to automate first, from lead response and qualification to handoffs and reporting." }
+};
 
 export function generateStaticParams() { return insights.map(({ slug }) => ({ slug })); }
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> { const { slug } = await params; const post = insights.find((x) => x.slug === slug); return post ? { title: post.title, description: post.summary, alternates: { canonical: `/insights/${slug}` } } : {}; }
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> { const { slug } = await params; const post = insights.find((x) => x.slug === slug); const seo = insightMetadata[slug]; return post ? pageMetadata({ title: seo?.title ?? post.title, description: seo?.description ?? post.summary, path: `/insights/${slug}` }) : {}; }
 export default async function InsightPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params; const post = insights.find((x) => x.slug === slug); if (!post) notFound(); const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://qaro.in";
+  const { slug } = await params; const post = insights.find((x) => x.slug === slug); if (!post) notFound(); const base = siteUrl;
   return <><PageHero eyebrow={`${post.category} / QARO perspective`} title={post.title} description={post.summary} path={`/insights/${slug}`} breadcrumbName={post.title} backHref="/insights" backLabel="Insights" />
     <article className="article-body">
       <p className="article-lead">The right channel is the one that matches how demand exists in your market and can be measured against a commercial outcome.</p>

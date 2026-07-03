@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { PageHero } from "@/components/page-hero";
 import { Reveal } from "@/components/reveal";
 import { services } from "@/content/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Growth Solutions - Design, Marketing, AI Automation",
-  description: "QARO offers integrated growth solutions: website design, performance marketing, SEO, branding and AI automation for businesses in Kota and across India.",
-  alternates: { canonical: "/solutions" }
-};
+  description: "QARO offers integrated growth solutions: website design, performance marketing, SEO, branding and AI automation for businesses across India and worldwide.",
+  path: "/solutions"
+});
 
 export default function SolutionsPage() {
   return <>

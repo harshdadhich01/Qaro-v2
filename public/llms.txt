@@ -1,6 +1,6 @@
 # QARO
 
-QARO is a growth partner based in Kota, Rajasthan, India. It connects growth strategy, branding, website design and development, UI/UX, performance marketing, SEO, AI automation, analytics and optimisation into one system.
+QARO is an India-based growth partner serving businesses nationally and worldwide. It connects growth strategy, branding, website design and development, UI/UX, performance marketing, SEO, AI automation, analytics and optimisation into one system.
 
 ## Canonical site
 https://qaro.in
@@ -14,7 +14,7 @@ https://qaro.in
 - https://qaro.in/contact
 
 ## Service area
-Kota, Rajasthan and businesses across India.
+India and worldwide. QARO is headquartered in Kota, Rajasthan, India and delivers through remote-friendly collaboration.
 
 ## Contact
 hello@qaro.in

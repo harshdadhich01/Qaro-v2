@@ -6,13 +6,20 @@ import { PageHero } from "@/components/page-hero";
 import { Reveal } from "@/components/reveal";
 import { JsonLd } from "@/components/seo/json-ld";
 import { caseStudies } from "@/content/site";
+import { pageMetadata, siteUrl } from "@/lib/seo";
+
+const caseMetadata: Record<string, { title: string; description: string }> = {
+  "guesthouse-direct-bookings-68-percent": { title: "68% More Direct Bookings - Guesthouse Case Study", description: "How QARO helped a guesthouse increase direct bookings 68% in 60 days and cut OTA dependency by 30%. Read the full case study." },
+  "clinic-8-to-31-inquiries": { title: "From 8 to 31 Patient Enquiries - Clinic Case Study", description: "How QARO helped a clinic grow qualified monthly patient enquiries from 8 to 31 through search visibility and an appointment-focused funnel." },
+  "coaching-batches-filled-early": { title: "Batches Filled 3 Weeks Early - Education Case Study", description: "How QARO helped a coaching institute fill target batches three weeks early while reducing cost per qualified lead by 27%." }
+};
 
 export function generateStaticParams() { return caseStudies.map(({ slug }) => ({ slug })); }
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> { const { slug } = await params; const study = caseStudies.find((x) => x.slug === slug); return study ? { title: study.headline, description: study.result, alternates: { canonical: `/case-studies/${slug}` } } : {}; }
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> { const { slug } = await params; const study = caseStudies.find((x) => x.slug === slug); const seo = caseMetadata[slug]; return study ? pageMetadata({ title: seo?.title ?? study.headline, description: seo?.description ?? study.result, path: `/case-studies/${slug}` }) : {}; }
 
 export default async function CaseStudyPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params; const study = caseStudies.find((x) => x.slug === slug); if (!study) notFound();
-  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://qaro.in";
+  const base = siteUrl;
   return <>
     <PageHero eyebrow={`Case study / ${study.industry}`} title={study.headline} description={`${study.result} A focused example of QARO connecting customer experience, demand and measurement.`} path={`/case-studies/${slug}`} breadcrumbName={study.headline} backHref="/case-studies" backLabel="Case studies" />
     <section className="section case-story">

@@ -5,15 +5,28 @@ import { Reveal } from "@/components/reveal";
 import { JsonLd } from "@/components/seo/json-ld";
 import { ServiceShowcase } from "@/components/service-showcase";
 import { GrowthSystem } from "@/components/growth-system";
+import { CountUp } from "@/components/count-up";
 import { caseStudies, industries, insights, services, stats } from "@/content/site";
+import { siteUrl } from "@/lib/seo";
 
 const faq = [
   ["Why is growth inconsistent even when the team is busy?", "Because disconnected activity creates motion without a shared commercial system. QARO connects strategy, execution and measurement."],
   ["Can QARO work with an existing internal team?", "Yes. We can operate as a focused growth partner, specialist delivery team or extension of your existing capability."],
-  ["Does QARO only work with businesses in Kota?", "No. QARO is based in Kota and works with businesses across Rajasthan and India, in person and remotely."]
+  ["Where does QARO work?", "QARO works with businesses across India and worldwide through remote-friendly, collaborative delivery."]
 ];
 
 export default function HomePage() {
+  const localBusiness = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": `${siteUrl}/#headquarters`,
+    name: "QARO",
+    url: siteUrl,
+    email: "hello@qaro.in",
+    address: { "@type": "PostalAddress", addressLocality: "Kota", addressRegion: "Rajasthan", addressCountry: "IN" },
+    areaServed: [{ "@type": "Country", name: "India" }, { "@type": "Place", name: "Worldwide" }],
+    parentOrganization: { "@id": `${siteUrl}/#organization` }
+  };
   return (
     <>
       <section className="hero">
@@ -21,7 +34,7 @@ export default function HomePage() {
         <div className="hero-grid-overlay" />
         <div className="hero-content">
           <Reveal className="hero-copy">
-            <span className="eyebrow"><i /> Independent growth partner / Kota, India</span>
+            <span className="eyebrow"><i /> Independent growth partner / India + Worldwide</span>
             <h1>Growth,<br />Built <em>Smarter.</em></h1>
             <p>QARO connects strategy, design, technology, marketing and AI automation into one growth system for ambitious businesses.</p>
             <div className="hero-actions">
@@ -38,9 +51,28 @@ export default function HomePage() {
         <h2 id="numbers-title" className="sr-only">Numbers that matter</h2>
         {stats.map((stat, index) => (
           <Reveal className="stat" key={stat.label} delay={index * 0.06}>
-            <span className="stat-number">{stat.value}</span><span>{stat.label}</span>
+            <CountUp className="stat-number" value={stat.value} /><span>{stat.label}</span>
           </Reveal>
         ))}
+      </section>
+
+      <section className="team-strip" aria-labelledby="team-strip-title">
+        <Reveal className="team-strip-head">
+          <span className="eyebrow"><i /> A team built for scale</span>
+          <h2 id="team-strip-title">Talent behind every launch.</h2>
+        </Reveal>
+        <div className="team-strip-grid">
+          {[
+            { value: "100+", label: "Editors" },
+            { value: "100+", label: "Graphic Designers" },
+            { value: "50+", label: "UI/UX Experts" },
+          ].map((item, index) => (
+            <Reveal className="team-chip" key={item.label} delay={index * 0.08}>
+              <CountUp className="team-chip-value" value={item.value} />
+              <span className="team-chip-label">{item.label}</span>
+            </Reveal>
+          ))}
+        </div>
       </section>
 
       <section className="section services-section">
@@ -111,6 +143,7 @@ export default function HomePage() {
       </section>
 
       <JsonLd data={{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) }} />
+      <JsonLd data={localBusiness} />
     </>
   );
 }

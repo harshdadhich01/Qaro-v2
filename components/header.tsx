@@ -24,7 +24,6 @@ export function Header() {
     <header className="site-header">
       <Link className="brand" href="/" aria-label="QARO home" onClick={() => setOpen(false)}>
         <Logo className="brand-logo" />
-        <span className="brand-tag">Growth, Built Smarter.</span>
       </Link>
 
       <nav className={open ? "nav-links is-open" : "nav-links"} aria-label="Primary navigation">

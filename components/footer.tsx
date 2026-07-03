@@ -19,7 +19,6 @@ export function Footer() {
         <div>
           <Link className="brand" href="/" aria-label="QARO home">
             <Logo className="brand-logo" />
-            <span className="brand-tag">Growth, Built Smarter.</span>
           </Link>
           <p>Design, technology, marketing and automation - connected into one growth engine.</p>
           <address>Kota, Rajasthan, India<br /><a href="mailto:hello@qaro.in">hello@qaro.in</a></address>
