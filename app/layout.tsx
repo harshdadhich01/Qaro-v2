@@ -106,6 +106,18 @@ const organization = {
   email: "hello@qaro.in",
 };
 
+const website = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${base}/#website`,
+  url: base,
+  name: "QARO",
+  description:
+    "Growth strategy, design, technology, marketing and AI automation for businesses across India and worldwide.",
+  inLanguage: "en-IN",
+  publisher: { "@id": `${base}/#organization` },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
