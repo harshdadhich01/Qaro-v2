@@ -21,7 +21,7 @@ export function Footer() {
             <Logo className="brand-logo" />
           </Link>
           <p>Design, technology, marketing and automation - connected into one growth engine.</p>
-          <address>Kota, Rajasthan, India<br /><a href="mailto:hello@qaro.in">hello@qaro.in</a></address>
+          <address>Kota, Rajasthan, India<br /><a href="mailto:hello@qaro.in">hello@qaro.in</a><br /><a href="tel:+919352688545">+91 9352688545</a></address>
         </div>
         <div>
           <span className="footer-label">Solutions</span>
